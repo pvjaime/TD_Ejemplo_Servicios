@@ -1,5 +1,6 @@
 package perez.jaime.tdejemploservicios
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -17,6 +18,16 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.btnIniciarServicio.setOnClickListener {
+            val intentServicio = Intent(this, ServicioDeTest::class.java)
+            startService(intentServicio)
+        }
+
+        binding.btnDetenerServicio.setOnClickListener {
+            val intentServicio = Intent(this, ServicioDeTest::class.java)
+            stopService(intentServicio)
+        }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
