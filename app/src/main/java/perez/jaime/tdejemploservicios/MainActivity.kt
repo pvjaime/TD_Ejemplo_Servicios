@@ -19,13 +19,13 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val intentServicio = Intent(this, ServicioDeTest::class.java)
+
         binding.btnIniciarServicio.setOnClickListener {
-            val intentServicio = Intent(this, ServicioDeTest::class.java)
             startService(intentServicio)
         }
 
         binding.btnDetenerServicio.setOnClickListener {
-            val intentServicio = Intent(this, ServicioDeTest::class.java)
             stopService(intentServicio)
         }
 
